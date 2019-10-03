@@ -30,7 +30,7 @@ describe('VUserProfile', () => {
     //     expect(wrapper.html()).toMatchSnapshot()
     // });
 
-    test('renders main components', () => {
+    test('renderização dos dados recebidos via props', () => {
         // arrange
         const { avatar, name, bio } = build();
         // assert

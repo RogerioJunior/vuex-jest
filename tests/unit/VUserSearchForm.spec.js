@@ -19,17 +19,20 @@ describe('VUserSearchForm', () => {
     //     expect(wrapper.html()).toMatchSnapshot();
     // });
 
-    test('renders main child components', () => {
-        // arrange
+    test('renderização dos dados recebidos via props', () => {
         const { input, button } = build();
 
         expect(input().exists()).toBe(true);
         expect(button().exists()).toBe(true);
-    }),
+    });
 
     test('calls "submitted" event when submitting form', () => {
         const expectedUser = 'kuroski';
         const { wrapper, button, input } = build();
+
+        //inserimos manualmente no input o nosso usiario pesquisado.
+        //fazemos o trigger dos eventos de input, indicando que "escrevemos" nele.
+        // e as ações de click/submit do botão
         input().element.value = expectedUser;
 
         input().trigger('input');

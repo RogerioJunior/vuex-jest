@@ -17,7 +17,6 @@
             user: {
                 type: Object,
                 required: true,
-                default: () => ({})
             }
         }
     }

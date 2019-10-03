@@ -15,9 +15,12 @@ describe('store actions', () => {
         const expectedUser = 'kuroski';
 
         await actions.SEARCH_USER({ commit }, { username: expectedUser });
+        // garantir que todas a promises foram resolvidas neste momento do teste
         await flushPromises();
 
+        // ao chamar a action, nós esperamos que o nosso serviço de API tenha sido
+        // chamado na função searchUser e que tenha sido passado o nosso usuário esperado.
         expect(api.searchUser).toHaveBeenCalledWith(expectedUser);
-        expect(commit).toHaveBeenCalledWith('SET_USER', userFixture)
+        expect(commit).toHaveBeenCalledWith('SET_USER', userFixture);
     })
 });

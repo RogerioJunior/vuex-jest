@@ -24,6 +24,8 @@ import VUserProfile from '@/components/VUserProfile'
 
         methods: {
             searchUser(username) {
+                //aqui podemos ouvir os eventos de submitted enviados pelo VUserSearchForm,
+                // que ao ser chamado, podemos fazer o dispatch da nossa action.
                 this.$store.dispatch('SEARCH_USER', { username })
             }
         },
