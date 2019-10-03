@@ -1,14 +1,22 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
+import ElementUI from 'element-ui'
 import VUserSearchForm from '@/components/VUserSearchForm'
+
+const localVue = createLocalVue();
+localVue.use(ElementUI);
 
 describe('VUserSearchForm', () => {
     const build = () => {
-        const wrapper = shallowMount(VUserSearchForm);
+        const options = { localVue };
+        const wrapper = shallowMount(VUserSearchForm, options);
+        const wrapperMounted = mount(VUserSearchForm, options);
 
         return {
             wrapper,
-            input: () => wrapper.find('input'),
-            button: () => wrapper.find('button'),
+            wrapperMounted,
+            input: () => wrapper.find('.search-form__input'),
+            inputMounted: () => wrapperMounted.find('input'),
+            button: () => wrapperMounted.find('.search-form__button'),
         }
     };
 
@@ -26,19 +34,19 @@ describe('VUserSearchForm', () => {
         expect(button().exists()).toBe(true);
     });
 
-    test('calls "submitted" event when submitting form', () => {
+    test('verificar emissão do evento "submitted"', () => {
         const expectedUser = 'kuroski';
-        const { wrapper, button, input } = build();
+        const { wrapperMounted, button, inputMounted } = build();
 
         //inserimos manualmente no input o nosso usiario pesquisado.
         //fazemos o trigger dos eventos de input, indicando que "escrevemos" nele.
         // e as ações de click/submit do botão
-        input().element.value = expectedUser;
+        inputMounted().element.value = expectedUser;
 
-        input().trigger('input');
+        inputMounted().trigger('input');
         button().trigger('click');
         button().trigger('submit');
 
-        expect(wrapper.emitted().submitted[0]).toEqual([expectedUser])
+        expect(wrapperMounted.emitted().submitted[0]).toEqual([expectedUser])
     })
 });
