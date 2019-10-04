@@ -1,4 +1,4 @@
-// conter um exemplo de como seria o nosso dado real para utilizarmos nos nossos testes.
+//aqui contem um exemplo de como seria o nosso dado real para utilizarmos nos nossos testes.
 
 export default {
     "login": "octocat",
