@@ -51,14 +51,14 @@ describe('UserView', () => {
     // });
 
     test('renderizou os componentes filhos', () => {
-        // destructuring - cahama a função build e pegamos aquilo que iremos utilizar para o teste
+        // destructuring - chama a função build e pegamos aquilo que iremos utilizar para o teste
         const { userSearchForm, userProfile } = build();
 
         expect(userSearchForm().exists()).toBe(true);
         expect(userProfile().exists()).toBe(true);
     });
 
-    test('valida binds do componente, passando uma propriedade para o compinente contendo um objeto', () => {
+    test('valida binds do componente, passando uma propriedade para o componente contendo um objeto', () => {
         state.user = userFixture;
         const { userProfile } = build();
 
