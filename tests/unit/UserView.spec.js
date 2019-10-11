@@ -51,7 +51,7 @@ describe('UserView', () => {
     // });
 
     test('renderizou os componentes filhos', () => {
-        // destructuring - chama a função build e pegamos aquilo que iremos utilizar para o teste
+        // destructuring
         const { userSearchForm, userProfile } = build();
 
         expect(userSearchForm().exists()).toBe(true);
@@ -65,8 +65,8 @@ describe('UserView', () => {
         expect(userProfile().vm.user).toBe(state.user)
     });
 
-    test('searches for a user when received "submitted"', () => {
-        const expectedUser = 'kuroski';
+    test('verificar emissão do evento "submitted"', () => {
+        const expectedUser = 'rato';
         const { userSearchForm } = build();
 
         userSearchForm().vm.$emit('submitted', expectedUser);

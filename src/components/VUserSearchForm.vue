@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="$emit('submitted', username)">
+    <form @submit.prevent="$emit('submitted', username)" action="/">
         <el-input placeholder="Pesquise o usuário" v-model="username" class="search-form__input">
             <el-button class="search-form__button" native-type="submit" slot="append" icon="el-icon-search"></el-button>
         </el-input>

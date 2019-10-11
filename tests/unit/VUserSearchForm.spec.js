@@ -35,7 +35,7 @@ describe('VUserSearchForm', () => {
     });
 
     test('verificar emissão do evento "submitted"', () => {
-        const expectedUser = 'kuroski';
+        const expectedUser = 'rato';
         const { wrapperMounted, button, inputMounted } = build();
 
         //inserimos manualmente no input o nosso usiario pesquisado.
